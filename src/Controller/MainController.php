@@ -20,4 +20,10 @@ class MainController extends AbstractController
     {
         return $this->render('main/menu.html.twig');
     }
+
+    #[Route('/menu/327379006c7d21ce78bd69d59c7e5b5b/saintgermain', name: 'saintgermain')]
+    public function saintgermain()
+    {
+        return $this->render('main/saintgermain.html.twig');
+    }
 }

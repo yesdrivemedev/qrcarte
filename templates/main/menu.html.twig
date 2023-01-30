@@ -1,0 +1,317 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	- Chez DIDI
+{% endblock %}
+
+
+{% block body %}
+
+	<!-- ======= Top Bar ======= -->
+	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+			<i class="bi bi-phone d-flex align-items-center">
+				<span>+225 0757816452</span>
+			</i>
+
+		</div>
+	</section>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+			<div class="logo me-auto">
+				<h1>
+					<a href="index.html">Chez DIDI</a>
+				</h1>
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			</div>
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+					<li>
+						<a class="nav-link scrollto active" href="#hero">ACCUEIL</a>
+					</li>
+					<li>
+						<a class="nav-link scrollto" href="#contact">Contact</a>
+					</li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+			<!-- .navbar -->
+
+			<a href="#menu" class="book-a-table-btn scrollto">MENU</a>
+
+		</div>
+	</header>
+	<!-- End Header -->
+
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div class="hero-container">
+			<div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+				<ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+				<div
+					class="carousel-inner" role="listbox">
+
+					<!-- Slide 1 -->
+					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/slide/slide-1.jpg') }});">
+						<div class="carousel-container">
+							<div class="carousel-content">
+								<h2 class="animate__animated animate__fadeInDown">
+									<span>Restaurant</span>
+									CHEZ DIDI</h2>
+								<p class="animate__animated animate__fadeInUp">Passer un moment inoubliable dans notre restaurant. Seul ou en famille, profitez de nos spécialités orientales.</p>
+								<div>
+									<a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Notre menu</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+				</a>
+
+				<a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+					<span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- End Hero -->
+
+
+	<main
+		id="main">
+
+
+		<!-- ======= Menu Section ======= -->
+		<section id="menu" class="menu">
+			<div class="container">
+
+				<div class="section-title">
+					<h2>Notre
+						<span>Menu</span>
+					</h2>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12 d-flex justify-content-center">
+						<ul id="menu-flters">
+							<li data-filter="*" class="filter-active">Voir tout</li>
+							<li data-filter=".filter-starters">Nos Cocktails</li>
+							<li data-filter=".filter-salads">Nos Desserts</li>
+							<li data-filter=".filter-specialty">Nos spécialités</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row menu-container">
+
+					<div class="col-lg-6 menu-item filter-starters">
+						<div class="menu-content">
+							<a href="#">Le Fairouz</a>
+							<span>11.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							litchi, eau de rose, champagne
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-starters">
+						<div class="menu-content">
+							<a href="#">Douceur d’Orient</a>
+							<span>6.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							sangria de vin blanc aux fruits d’ici et épices d’orients
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-starters">
+						<div class="menu-content">
+							<a href="#">Mojito de la Bekaa</a>
+							<span>8.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							basilic, citron vert, sucre roux, rhum
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-salads">
+						<div class="menu-content">
+							<a href="#">Salade de Fruits Maison</a>
+							<span>5.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							fruits de saison au sirop de rose
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-specialty">
+						<div class="menu-content">
+							<a href="#">Warak Enab Bel Laham</a>
+							<span>10.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							feuilles de vigne farcies à la viane
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-starters">
+						<div class="menu-content">
+							<a href="#">Spritz</a>
+							<span>7.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							aperol, proseco, perrier
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-salads">
+						<div class="menu-content">
+							<a href="#">Kneffé au Fromage</a>
+							<span>7.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							gâteau de semoule et fromage fondu
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-salads">
+						<div class="menu-content">
+							<a href="#">Ataef Achta Crues ( 2 pièces)</a>
+							<span>3.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							crêpes aux mille trous
+						</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-specialty">
+						<div class="menu-content">
+							<a href="#">Ouzé Bel Djeije</a>
+							<span>12.000 F CFA</span>
+						</div>
+						<div class="menu-ingredients">
+							poulet aux épices, riz à l’orientale
+							<small>(uniquement les jeudis)</small>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- End Menu Section -->
+
+
+		<!-- ======= Contact Section ======= -->
+		<section id="contact" class="contact">
+			<div class="container">
+
+				<div class="section-title">
+					<h2>
+						<span>Contactez</span>
+						nous</h2>
+					<p>Restaurant situé à Abidjan Zone 3. Nous faisons des spécialités orientales.</p>
+				</div>
+			</div>
+
+
+			<div class="container mt-5">
+
+				<div class="info-wrap">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 info">
+							<i class="bi bi-geo-alt"></i>
+							<h4>Localisation:</h4>
+							<p>Athletic Club, Bd de Marseille
+								<br>Abidjan, Côte d’Ivoire</p>
+						</div>
+
+						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+							<i class="bi bi-clock"></i>
+							<h4>Heures d'ouverture:</h4>
+							<p>Lundi-Dimanche:<br>11:00 - 23:00
+							</p>
+						</div>
+
+						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+							<i class="bi bi-envelope"></i>
+							<h4>Email:</h4>
+							<p>chezdidi@gmail.com</p>
+						</div>
+
+						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+							<i class="bi bi-phone"></i>
+							<h4>Call:</h4>
+							<p>+225 0757816452<br>+225 0707454750</p>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		<!-- End Contact Section -->
+
+	</main>
+	<!-- End #main -->
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container">
+			<h3>Chez DIDI</h3>
+			<p>Restaurant situé à Abidjan Zone 3. Nous faisons des spécialités orientales.</p>
+			<div class="social-links">
+				<a href="#" class="twitter">
+					<i class="bx bxl-twitter"></i>
+				</a>
+				<a href="#" class="facebook">
+					<i class="bx bxl-facebook"></i>
+				</a>
+				<a href="#" class="instagram">
+					<i class="bx bxl-instagram"></i>
+				</a>
+				<a href="#" class="google-plus">
+					<i class="bx bxl-skype"></i>
+				</a>
+				<a href="#" class="linkedin">
+					<i class="bx bxl-linkedin"></i>
+				</a>
+			</div>
+			<div class="copyright">
+				&copy; Copyright
+				<strong>
+					<span>Qrcartes.com</span>
+				</strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				<!-- All the links in the footer should remain intact. -->
+				<!-- You can delete the links only if you purchased the pro version. -->
+				<!-- Licensing information: https://bootstrapmade.com/license/ -->
+				<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+				Designed by
+					<a href=""> Qrcartes.com</a>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+		<i class="bi bi-arrow-up-short"></i>
+	</a>
+
+{% endblock %}

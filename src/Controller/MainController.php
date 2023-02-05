@@ -33,17 +33,26 @@ class MainController extends AbstractController
         //Steven Miller - Red
 
         $nom = 'Zeze';
+        $identifiant = null;
 
         foreach ($json as $elem) {
             //  echo ($elem['name'] . " - " . $elem['favourite']['statut']);
-            if ($elem['code'] == $restau && $elem['token']['statut'] == 'OK' && $elem['token']['secret'] == $secret)  $nom = $elem['name'];
+            if ($elem['code'] == $restau && $elem['token']['statut'] == 'OK' && $elem['token']['secret'] == $secret) {
+
+                $nom = $elem['code'];
+                $identifiant = (int) $elem['id'] - 1;
+            }
             //echo ("<br/>");
         }
 
 
         // echo ("<br/>");
         // echo $nom;
+        //dd($identifiant);
         //  die();
-        return $this->render('main/qrmenu.html.twig', ['nom' => $nom]);
+        if ($nom == $restau)
+            return $this->render('main/qrmenu.html.twig', ['restaurants' => $json, 'id' => $identifiant]);
+        else
+            return $this->render('main/mauvais-lien.html.twig', ['nom' => $nom]);
     }
 }

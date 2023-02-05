@@ -2,8 +2,14 @@
 
 {% block title %}
 	-
-	{{nom}}
+	{{ restaurants[id].name }}
 {% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('assets/css/' ~ restaurants[id].css ~ '.css') }}" rel="stylesheet">
+{% endblock %}
+
+
 
 
 {% block body %}
@@ -12,7 +18,7 @@
 	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
 			<i class="bi bi-phone d-flex align-items-center">
-				<span>+237 699 649 898</span>
+				<span>{{ restaurants[id].telephone }}</span>
 			</i>
 
 		</div>
@@ -24,7 +30,7 @@
 
 			<div class="logo me-auto">
 				<h1>
-					<a href="index.html">{{nom}}</a>
+					<a href="index.html">{{ restaurants[id].name }}</a>
 				</h1>
 				<!-- Uncomment below if you prefer to use an image logo -->
 				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -61,14 +67,14 @@
 					class="carousel-inner" role="listbox">
 
 					<!-- Slide 1 -->
-					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/restaurants/saintgermain/e462f861302bbf35a3c091f306eacd52.jpeg') }});">
+					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/restaurants/' ~ restaurants[id].image) }});">
 						<div class="carousel-container">
 							<div class="carousel-content">
 								<h2 class="animate__animated animate__fadeInDown">
-									<span>Brasserie
+									<span>{{ restaurants[id].nomcourtright }}
 									</span>
-									Le Saint-Germain</h2>
-								<p class="animate__animated animate__fadeInUp">Terasse - Disponible pour évènement - Parking sécurisé</p>
+									{{ restaurants[id].nomcourtleft }}</h2>
+								<p class="animate__animated animate__fadeInUp">{{ restaurants[id].descriptioncourte }}</p>
 								<div>
 									<a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Notre menu</a>
 
@@ -105,191 +111,29 @@
 					<div class="col-lg-12 d-flex justify-content-center">
 						<ul id="menu-flters">
 							<li data-filter="*" class="filter-active">Voir tout</li>
-							<li data-filter=".filter-starters">Petit Déjeunner</li>
-							<li data-filter=".filter-viandes">Les Viandes</li>
-							<li data-filter=".filter-pattes">Les pattes</li>
-							<li data-filter=".filter-accom">Accompagnements</li>
-							<li data-filter=".filter-dessert">Les Desserts</li>
+							{% for categorie in restaurants[id].categories  %}
+							<li data-filter=".{{categorie.filtre}}">{{categorie.nom}}</li>
+							{% endfor %}
+							
 						</ul>
 					</div>
 				</div>
 
 				<div class="row menu-container">
 
-					<div class="col-lg-6 menu-item filter-starters">
-						<div class="menu-content">
-							<a href="#">Petit Déjeunner</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients">
-							viennoiserie aux choix, beurre, confiture + verre de jus + boisson chaude + Omelette nature (03 oeufs)
-						</div>
-					</div>
+				{% for plat in restaurants[id].plats  %}
+						
+					<div class="col-lg-6 menu-item {{plat.filtre}}">
+								<div class="menu-content">
+									<a href="#">{{plat.nom}}</a>
+									<span>{{plat.prixsimple}}</span>
+								</div>
+								<div class="menu-ingredients">
+									{{plat.description}}
+								</div>
+							</div>
+			    {% endfor %}
 
-					<div class="col-lg-6 menu-item filter-starters">
-						<div class="menu-content">
-							<a href="#">Supplémént Petit Déjeunner 1</a>
-							<span>500</span>
-						</div>
-						<div class="menu-ingredients">
-							Jambon, saucisse, Sardine
-						</div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-starters">
-						<div class="menu-content">
-							<a href="#">Supplémént Petit Déjeunner 2</a>
-							<span>1.500</span>
-						</div>
-						<div class="menu-ingredients">Croissant, Pain au chocolat, Tartine</div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Travers de porc caramélisé</a>
-							<span>9.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Saucisse de Toulouse</a>
-							<span>7.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Foie de boeuf poêlé et sa purée maison</a>
-							<span>9.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Jambonneau de porc</a>
-							<span>9.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Filet de zébu</a>
-							<span>10.500</span>
-						</div>
-						<div class="menu-ingredients">
-							Sauce creme champignon ou poivron vert
-						</div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Tartare de boeuf</a>
-							<span>10.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Blanquette de veau à l'ancienne</a>
-							<span>10.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Rognon entier moutard à l'ancienne</a>
-							<span>10.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Tournedos Rossini</a>
-							<span>14.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-viandes">
-						<div class="menu-content">
-							<a href="#">Souris d'agneau</a>
-							<span>11.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-pattes">
-						<div class="menu-content">
-							<a href="#">Spaghetti ou Penne Gambas</a>
-							<span>9.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-					<div class="col-lg-6 menu-item filter-pattes">
-						<div class="menu-content">
-							<a href="#">Spaghetti ou Penne à la carbonara</a>
-							<span>9.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-accom">
-						<div class="menu-content">
-							<a href="#">Les accompagnements</a>
-							<span></span>
-						</div>
-						<div class="menu-ingredients">Riz nature,
-																																																	pommes sautées, haricots verts, gratin de légumes, frites
-						</div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-dessert">
-						<div class="menu-content">
-							<a href="#">Coupe Colonel</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-dessert">
-						<div class="menu-content">
-							<a href="#">Salade de fruits</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-dessert">
-						<div class="menu-content">
-							<a href="#">Fondant au chocolat</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-dessert">
-						<div class="menu-content">
-							<a href="#">Dame blanche</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
-
-					<div class="col-lg-6 menu-item filter-dessert">
-						<div class="menu-content">
-							<a href="#">Mousse au chocolat</a>
-							<span>4.500</span>
-						</div>
-						<div class="menu-ingredients"></div>
-					</div>
 
 				</div>
 
@@ -306,7 +150,7 @@
 					<h2>
 						<span>Contactez</span>
 						nous</h2>
-					<p>Européenne 🇪🇺 • Brasserie</p>
+					<p>{{ restaurants[id].name }}</p>
 				</div>
 			</div>
 
@@ -318,8 +162,7 @@
 						<div class="col-lg-3 col-md-6 info">
 							<i class="bi bi-geo-alt"></i>
 							<h4>Localisation:</h4>
-							<p>Carrefour IPN,
-								<br>Bonapriso</p>
+							<p>{{ restaurants[id].localisation }}</p>
 						</div>
 
 						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
@@ -338,7 +181,7 @@
 						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
 							<i class="bi bi-phone"></i>
 							<h4>Téléphone:</h4>
-							<p>+237 699 649 898</p>
+							<p>{{ restaurants[id].telephone }}</p>
 						</div>
 					</div>
 				</div>
@@ -354,10 +197,10 @@
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="container">
-			<h3>Le Saint Germain</h3>
-			<p>Terrasse - Disponible pour évènements - Parking sécurisé |
+			<h3>{{ restaurants[id].name }}</h3>
+			<p>{{ restaurants[id].phrase1 }}|
 				<i class="bi bi-geo-alt-fill"></i>
-				Carrefour IPN, Bonapriso</p>
+				{{ restaurants[id].localisation }}</p>
 			<div class="social-links">
 				<a href="#" class="twitter">
 					<i class="bx bxl-twitter"></i>

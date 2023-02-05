@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	-
+	Menu digital
+{% endblock %}
+
+
+{% block body %}
+
+	<!-- ======= Top Bar ======= -->
+	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+			<i class="bi bi-phone d-flex align-items-center">
+				<span>+237 680 04 90 93</span>
+			</i>
+
+		</div>
+	</section>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+			<div class="logo me-auto">
+				<h1>
+					<a href="index.html">Qrcartes</a>
+				</h1>
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			</div>
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+					<li>
+						<a class="nav-link scrollto active" href="#hero">ACCUEIL</a>
+					</li>
+					<li>
+						<a class="nav-link scrollto" href="#contact">Contact</a>
+					</li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+			<!-- .navbar -->
+
+			<a href="#menu" class="book-a-table-btn scrollto">MENU</a>
+
+		</div>
+	</header>
+	<!-- End Header -->
+
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div class="hero-container">
+			<div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+				<ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+				<div
+					class="carousel-inner" role="listbox">
+
+					<!-- Slide 1 -->
+					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/restaurants/saintgermain/e462f861302bbf35a3c091f306eacd52.jpeg') }});">
+						<div class="carousel-container">
+							<div class="carousel-content">
+								<h2 class="animate__animated animate__fadeInDown">
+									<span>Nous sommes
+									</span>
+									désolés</h2>
+								<p class="animate__animated animate__fadeInUp">Le restaurant spécifié est introuvable</p>
+								<div>
+									<a href="{{ path('index')}}" class="btn-menu animate__animated animate__fadeInUp scrollto">Visiter notre site</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+	<!-- End Hero -->
+
+
+	
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+		<i class="bi bi-arrow-up-short"></i>
+	</a>
+
+{% endblock %}

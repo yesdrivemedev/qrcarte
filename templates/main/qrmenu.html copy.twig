@@ -1,7 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-	- Chez DIDI
+	-
+	{{ restaurants[id].nom }}
 {% endblock %}
 
 
@@ -11,7 +12,7 @@
 	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
 			<i class="bi bi-phone d-flex align-items-center">
-				<span>+225 0757816452</span>
+				<span>+237 699 649 898</span>
 			</i>
 
 		</div>
@@ -23,7 +24,7 @@
 
 			<div class="logo me-auto">
 				<h1>
-					<a href="index.html">Chez DIDI</a>
+					<a href="index.html">{{ restaurants[id].nom }}</a>
 				</h1>
 				<!-- Uncomment below if you prefer to use an image logo -->
 				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -60,15 +61,16 @@
 					class="carousel-inner" role="listbox">
 
 					<!-- Slide 1 -->
-					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/slide/slide-1.jpg') }});">
+					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/restaurants/saintgermain/e462f861302bbf35a3c091f306eacd52.jpeg') }});">
 						<div class="carousel-container">
 							<div class="carousel-content">
 								<h2 class="animate__animated animate__fadeInDown">
-									<span>Restaurant</span>
-									CHEZ DIDI</h2>
-								<p class="animate__animated animate__fadeInUp">Passer un moment inoubliable dans notre restaurant. Seul ou en famille, profitez de nos spécialités orientales.</p>
+									<span>Brasserie
+									</span>
+									Le Saint-Germain</h2>
+								<p class="animate__animated animate__fadeInUp">Terasse - Disponible pour évènement - Parking sécurisé</p>
 								<div>
-									<a href="{{ path('qrmenu',{"secret":"327379006c7d21ce78bd69d59c7e5b5b","restau":"saintgermain"}) }}" class="btn-menu animate__animated animate__fadeInUp scrollto">Notre menu</a>
+									<a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Notre menu</a>
 
 								</div>
 							</div>
@@ -78,13 +80,6 @@
 
 				</div>
 
-				<a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-				</a>
-
-				<a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-					<span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-				</a>
 
 			</div>
 		</div>
@@ -110,9 +105,11 @@
 					<div class="col-lg-12 d-flex justify-content-center">
 						<ul id="menu-flters">
 							<li data-filter="*" class="filter-active">Voir tout</li>
-							<li data-filter=".filter-starters">Nos Cocktails</li>
-							<li data-filter=".filter-salads">Nos Desserts</li>
-							<li data-filter=".filter-specialty">Nos spécialités</li>
+							<li data-filter=".filter-starters">Petit Déjeunner</li>
+							<li data-filter=".filter-viandes">Les Viandes</li>
+							<li data-filter=".filter-pattes">Les pattes</li>
+							<li data-filter=".filter-accom">Accompagnements</li>
+							<li data-filter=".filter-dessert">Les Desserts</li>
 						</ul>
 					</div>
 				</div>
@@ -121,93 +118,177 @@
 
 					<div class="col-lg-6 menu-item filter-starters">
 						<div class="menu-content">
-							<a href="#">Le Fairouz</a>
-							<span>11.000 F CFA</span>
+							<a href="#">Petit Déjeunner</a>
+							<span>4.500</span>
 						</div>
 						<div class="menu-ingredients">
-							litchi, eau de rose, champagne
+							viennoiserie aux choix, beurre, confiture + verre de jus + boisson chaude + Omelette nature (03 oeufs)
 						</div>
 					</div>
 
 					<div class="col-lg-6 menu-item filter-starters">
 						<div class="menu-content">
-							<a href="#">Douceur d’Orient</a>
-							<span>6.000 F CFA</span>
+							<a href="#">Supplémént Petit Déjeunner 1</a>
+							<span>500</span>
 						</div>
 						<div class="menu-ingredients">
-							sangria de vin blanc aux fruits d’ici et épices d’orients
+							Jambon, saucisse, Sardine
 						</div>
 					</div>
 
 					<div class="col-lg-6 menu-item filter-starters">
 						<div class="menu-content">
-							<a href="#">Mojito de la Bekaa</a>
-							<span>8.000 F CFA</span>
+							<a href="#">Supplémént Petit Déjeunner 2</a>
+							<span>1.500</span>
+						</div>
+						<div class="menu-ingredients">Croissant, Pain au chocolat, Tartine</div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Travers de porc caramélisé</a>
+							<span>9.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Saucisse de Toulouse</a>
+							<span>7.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Foie de boeuf poêlé et sa purée maison</a>
+							<span>9.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Jambonneau de porc</a>
+							<span>9.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Filet de zébu</a>
+							<span>10.500</span>
 						</div>
 						<div class="menu-ingredients">
-							basilic, citron vert, sucre roux, rhum
+							Sauce creme champignon ou poivron vert
 						</div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-salads">
+					<div class="col-lg-6 menu-item filter-viandes">
 						<div class="menu-content">
-							<a href="#">Salade de Fruits Maison</a>
-							<span>5.000 F CFA</span>
+							<a href="#">Tartare de boeuf</a>
+							<span>10.500</span>
 						</div>
-						<div class="menu-ingredients">
-							fruits de saison au sirop de rose
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Blanquette de veau à l'ancienne</a>
+							<span>10.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Rognon entier moutard à l'ancienne</a>
+							<span>10.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Tournedos Rossini</a>
+							<span>14.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-viandes">
+						<div class="menu-content">
+							<a href="#">Souris d'agneau</a>
+							<span>11.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-pattes">
+						<div class="menu-content">
+							<a href="#">Spaghetti ou Penne Gambas</a>
+							<span>9.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+					<div class="col-lg-6 menu-item filter-pattes">
+						<div class="menu-content">
+							<a href="#">Spaghetti ou Penne à la carbonara</a>
+							<span>9.500</span>
+						</div>
+						<div class="menu-ingredients"></div>
+					</div>
+
+					<div class="col-lg-6 menu-item filter-accom">
+						<div class="menu-content">
+							<a href="#">Les accompagnements</a>
+							<span></span>
+						</div>
+						<div class="menu-ingredients">Riz nature,
+																																																	pommes sautées, haricots verts, gratin de légumes, frites
 						</div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-specialty">
+					<div class="col-lg-6 menu-item filter-dessert">
 						<div class="menu-content">
-							<a href="#">Warak Enab Bel Laham</a>
-							<span>10.000 F CFA</span>
+							<a href="#">Coupe Colonel</a>
+							<span>4.500</span>
 						</div>
-						<div class="menu-ingredients">
-							feuilles de vigne farcies à la viane
-						</div>
+						<div class="menu-ingredients"></div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-starters">
+					<div class="col-lg-6 menu-item filter-dessert">
 						<div class="menu-content">
-							<a href="#">Spritz</a>
-							<span>7.000 F CFA</span>
+							<a href="#">Salade de fruits</a>
+							<span>4.500</span>
 						</div>
-						<div class="menu-ingredients">
-							aperol, proseco, perrier
-						</div>
+						<div class="menu-ingredients"></div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-salads">
+					<div class="col-lg-6 menu-item filter-dessert">
 						<div class="menu-content">
-							<a href="#">Kneffé au Fromage</a>
-							<span>7.000 F CFA</span>
+							<a href="#">Fondant au chocolat</a>
+							<span>4.500</span>
 						</div>
-						<div class="menu-ingredients">
-							gâteau de semoule et fromage fondu
-						</div>
+						<div class="menu-ingredients"></div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-salads">
+					<div class="col-lg-6 menu-item filter-dessert">
 						<div class="menu-content">
-							<a href="#">Ataef Achta Crues ( 2 pièces)</a>
-							<span>3.000 F CFA</span>
+							<a href="#">Dame blanche</a>
+							<span>4.500</span>
 						</div>
-						<div class="menu-ingredients">
-							crêpes aux mille trous
-						</div>
+						<div class="menu-ingredients"></div>
 					</div>
 
-					<div class="col-lg-6 menu-item filter-specialty">
+					<div class="col-lg-6 menu-item filter-dessert">
 						<div class="menu-content">
-							<a href="#">Ouzé Bel Djeije</a>
-							<span>12.000 F CFA</span>
+							<a href="#">Mousse au chocolat</a>
+							<span>4.500</span>
 						</div>
-						<div class="menu-ingredients">
-							poulet aux épices, riz à l’orientale
-							<small>(uniquement les jeudis)</small>
-						</div>
+						<div class="menu-ingredients"></div>
 					</div>
 
 				</div>
@@ -225,7 +306,7 @@
 					<h2>
 						<span>Contactez</span>
 						nous</h2>
-					<p>Restaurant situé à Abidjan Zone 3. Nous faisons des spécialités orientales.</p>
+					<p>Européenne 🇪🇺 • Brasserie</p>
 				</div>
 			</div>
 
@@ -237,27 +318,27 @@
 						<div class="col-lg-3 col-md-6 info">
 							<i class="bi bi-geo-alt"></i>
 							<h4>Localisation:</h4>
-							<p>Athletic Club, Bd de Marseille
-								<br>Abidjan, Côte d’Ivoire</p>
+							<p>Carrefour IPN,
+								<br>Bonapriso</p>
 						</div>
 
 						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
 							<i class="bi bi-clock"></i>
 							<h4>Heures d'ouverture:</h4>
-							<p>Lundi-Dimanche:<br>11:00 - 23:00
+							<p>Lundi-Dimanche:<br>09:00 - 22:00
 							</p>
 						</div>
 
 						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
 							<i class="bi bi-envelope"></i>
 							<h4>Email:</h4>
-							<p>chezdidi@gmail.com</p>
+							<p></p>
 						</div>
 
 						<div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
 							<i class="bi bi-phone"></i>
-							<h4>Call:</h4>
-							<p>+225 0757816452<br>+225 0707454750</p>
+							<h4>Téléphone:</h4>
+							<p>+237 699 649 898</p>
 						</div>
 					</div>
 				</div>
@@ -273,8 +354,10 @@
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="container">
-			<h3>Chez DIDI</h3>
-			<p>Restaurant situé à Abidjan Zone 3. Nous faisons des spécialités orientales.</p>
+			<h3>Le Saint Germain</h3>
+			<p>Terrasse - Disponible pour évènements - Parking sécurisé |
+				<i class="bi bi-geo-alt-fill"></i>
+				Carrefour IPN, Bonapriso</p>
 			<div class="social-links">
 				<a href="#" class="twitter">
 					<i class="bx bxl-twitter"></i>

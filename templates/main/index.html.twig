@@ -11,7 +11,11 @@
 	<section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
 		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
 			<i class="bi bi-phone d-flex align-items-center">
-				<span>+237 680 04 90 93</span>
+				<span>{{ app.request.server.get('APP_NUMERO') |slice(0, 4)}}
+					{{ app.request.server.get('APP_NUMERO') |slice(4, 3)}}
+					{{ app.request.server.get('APP_NUMERO') |slice(7, 2)}}
+					{{ app.request.server.get('APP_NUMERO') |slice(9, 2)}}
+					{{ app.request.server.get('APP_NUMERO') |slice(11, 2)}}</span>
 			</i>
 
 		</div>
@@ -23,7 +27,7 @@
 
 			<div class="logo me-auto">
 				<h1>
-					<a href="index.html">QRCARTE</a>
+					<a href="index.html">{{ app.request.server.get('APP_NOM') }}</a>
 				</h1>
 				<!-- Uncomment below if you prefer to use an image logo -->
 				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -384,7 +388,7 @@
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 		<div class="container">
-			<h3>QRCARTE</h3>
+			<h3>{{ app.request.server.get('APP_NOM') }}</h3>
 			<p>Le menu de votre restaurant directement dans le téléphone de vos clients en un scan.</p>
 			<div class="social-links">
 				<a href="#" class="twitter">

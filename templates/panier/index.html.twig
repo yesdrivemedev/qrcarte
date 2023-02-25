@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!
+{% endblock %}
+
+
+{% block body %}
+
+
+	<section id="topbar" class="d-flex align-items-center fixed-top topbar-black">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+			<i class="bi bi-phone d-flex align-items-center">
+				<span>{{restaurant.telephone}}</span>
+			</i>
+
+		</div>
+	</section>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center header-black">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+			<div class="logo me-auto" style="color:#ffffff;">
+				<h1>
+					{{restaurant.nom}}
+					<a href=""></a>
+				</h1>
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			</div>
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+					<li>
+						<a class="nav-link scrollto active" href="#hero">ACCUEIL</a>
+					</li>
+					<li>
+						<a class="nav-link scrollto" href="#contact">Contact</a>
+					</li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+			<!-- .navbar -->
+
+			<a href="{{ path('app_restaurant',{'slug': restaurant.slug}) }}" class="book-a-table-btn scrollto">MENU</a>
+
+		</div>
+	</header>
+	<!-- End Header -->
+
+
+	<!-- ======= Specials Section ======= -->
+	<section id="specials" class="specials" style="margin-top:100px;">
+		<div class="container">
+
+
+			<div class="row">
+				<div class="col-lg-3">
+					<ul class="nav nav-tabs flex-column">
+						<li class="nav-item">
+							<a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+								Mon panier</a>
+						</li>
+
+					</ul>
+				</div>
+				<div class="col-lg-9 mt-4 mt-lg-0">
+					<div class="tab-content">
+						<div class="tab-pane active show" id="tab-1">
+							<div class="row">
+								<div class="col-lg-8 details order-2 order-lg-1">
+									<h3>Récapitulatif</h3>
+
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col"></th>
+												<th scope="col"></th>
+												<th scope="col">Quantité</th>
+												<th scope="col">Prix</th>
+												<th scope="col">Total</th>
+												<th scope="col"></th>
+											</tr>
+										</thead>
+										<tbody>
+
+											{% set TotalCommande = 0 %}
+											{% for item in cart %}
+
+
+												<tr>
+													<th scope="row"></th>
+													<td>
+														<b>{{item.produit.nom}}</b>
+														<br>
+														<small>{{item.produit.description}}</small>
+													</td>
+													<td>
+														<a href="{{path('app_panier_supprimer',{'slug': restaurant.slug,'id':item.produit.id})}}">
+															<b><img src="{{asset('assets/img/moins.png')}}" height="8px" alt=""></b>
+														</a>
+														x{{item.quantity}}
+
+														<a href="{{path('app_panier_add',{'slug': restaurant.slug,'id':item.produit.id})}}">
+															<b>
+																<img src="{{asset('assets/img/plus.png')}}" height="8px" alt="">
+															</b>
+														</a>
+
+													</td>
+													<td>{{(item.produit.prixsimple / 100) }}</td>
+													{% set total = item.quantity * item.produit.prixsimple / 100 %}
+													<td>{{ total }}</td>
+													{% set TotalCommande = TotalCommande + total  %}
+													<td>
+														<a href="{{path('app_panier_delete',{'slug': restaurant.slug,'id':item.produit.id})}}">
+															<img src="{{asset('assets/img/trash_flash_supprimer_2.png')}}" height="15px" alt="">
+														</a>
+													</td>
+												</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+									<div class="text-right" style="padding-top:0px;">
+										<table align="right" width="300px">
+											<tr>
+												<td width="200px">
+													<b>
+														Nombre de produit</b>
+												</td>
+												<td>{{ cart | length }}</td>
+											</tr>
+											<tr>
+												<td width="200px">
+													<b>Total montant</b>
+												</td>
+												<td>{{ TotalCommande }}
+													F CFA</td>
+											</tr>
+										</table>
+										<br>
+										<br><br><br><br>
+										<center>
+											<a href="" class="btn btn-block btn-md btn-warning">
+
+												Confirmer ma commande
+											</a>
+										</center>
+										<br>
+									</div>
+
+								</div>
+								<div class="col-lg-4 text-center order-1 order-lg-2"></div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Specials Section -->
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+		<div class="container">
+			<h3></h3>
+			<p>Qrcartes
+
+			</p>
+			<div class="social-links">
+				<a href="#" class="twitter">
+					<i class="bx bxl-twitter"></i>
+				</a>
+				<a href="#" class="facebook">
+					<i class="bx bxl-facebook"></i>
+				</a>
+				<a href="#" class="instagram">
+					<i class="bx bxl-instagram"></i>
+				</a>
+				<a href="#" class="google-plus">
+					<i class="bx bxl-skype"></i>
+				</a>
+				<a href="#" class="linkedin">
+					<i class="bx bxl-linkedin"></i>
+				</a>
+			</div>
+			<div class="copyright">
+				&copy; Copyright
+				<strong>
+					<span>Qrcartes.com</span>
+				</strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				<!-- All the links in the footer should remain intact. -->
+				<!-- You can delete the links only if you purchased the pro version. -->
+				<!-- Licensing information: https://bootstrapmade.com/license/ -->
+				<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+				Designed by
+					<a href=""> Qrcartes.com</a>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+{% endblock %}

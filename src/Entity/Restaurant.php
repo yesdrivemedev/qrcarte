@@ -67,10 +67,18 @@ class Restaurant
     #[ORM\Column]
     private ?bool $isActif = null;
 
+    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Commande::class)]
+    private Collection $commandes;
+
+    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Mestables::class)]
+    private Collection $mestables;
+
     public function __construct()
     {
         $this->insertedAt = new \DateTime();
         $this->categories = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
+        $this->mestables = new ArrayCollection();
     }
 
     public function __toString()
@@ -301,6 +309,66 @@ class Restaurant
     public function setIsActif(bool $isActif): self
     {
         $this->isActif = $isActif;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getRestaurant() === $this) {
+                $commande->setRestaurant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Mestables>
+     */
+    public function getMestables(): Collection
+    {
+        return $this->mestables;
+    }
+
+    public function addMestable(Mestables $mestable): self
+    {
+        if (!$this->mestables->contains($mestable)) {
+            $this->mestables->add($mestable);
+            $mestable->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMestable(Mestables $mestable): self
+    {
+        if ($this->mestables->removeElement($mestable)) {
+            // set the owning side to null (unless already changed)
+            if ($mestable->getRestaurant() === $this) {
+                $mestable->setRestaurant(null);
+            }
+        }
 
         return $this;
     }

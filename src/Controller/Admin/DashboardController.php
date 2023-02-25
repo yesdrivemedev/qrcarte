@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Carrier;
 use App\Entity\Categorie;
+use App\Entity\Commande;
+use App\Entity\Mestables;
 use App\Entity\Plat;
 use App\Entity\Proprietaire;
 use App\Entity\Restaurant;
@@ -48,7 +51,10 @@ class DashboardController extends AbstractDashboardController
         #yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Propriétaires', 'fas fa-user', Proprietaire::class);
         yield MenuItem::linkToCrud('Resturants', 'fas fa-home', Restaurant::class);
+        yield MenuItem::linkToCrud('Tables', 'fas fa-square', Mestables::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Plats', 'fas fa-circle', Plat::class);
+        yield MenuItem::linkToCrud('Mode livraison', 'fas fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Commandes', 'fas fa-shopping-cart', Commande::class);
     }
 }

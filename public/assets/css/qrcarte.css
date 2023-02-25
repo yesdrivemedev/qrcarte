@@ -38,3 +38,50 @@
 }
 
 */
+
+.mestables {
+
+    padding: 15px;
+    background-color: #fca87c;
+    border-radius: 3px;
+}
+
+.mestables .required {
+    font-weight: bold;
+}
+
+.mestables .form-commande {
+    margin-bottom: 10px;
+    font-weight: normal;
+
+}
+
+.mestables .form-commande .required {
+
+    font-weight: normal;
+}
+
+.mestables input {
+
+    margin: 5px;
+
+}
+
+.titre-qrcate-orange {
+    color: chocolate;
+}
+
+.prix-commande {
+    color: chocolate;
+    font-weight: bold;
+
+
+}
+
+.text-commande {
+    text-align: center;
+    padding: 10px;
+    color: darkgreen;
+    font-weight: bold;
+
+}

@@ -6,9 +6,11 @@ use App\Entity\Carrier;
 use App\Entity\Categorie;
 use App\Entity\Commande;
 use App\Entity\Mestables;
+use App\Entity\Offre;
 use App\Entity\Plat;
 use App\Entity\Proprietaire;
 use App\Entity\Restaurant;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -49,6 +51,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         #yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-male', User::class);
         yield MenuItem::linkToCrud('Propriétaires', 'fas fa-user', Proprietaire::class);
         yield MenuItem::linkToCrud('Resturants', 'fas fa-home', Restaurant::class);
         yield MenuItem::linkToCrud('Tables', 'fas fa-square', Mestables::class);
@@ -56,5 +59,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Plats', 'fas fa-circle', Plat::class);
         yield MenuItem::linkToCrud('Mode livraison', 'fas fa-truck', Carrier::class);
         yield MenuItem::linkToCrud('Commandes', 'fas fa-shopping-cart', Commande::class);
+        yield MenuItem::linkToCrud('Offres', 'fas fa-th-list', Offre::class);
     }
 }

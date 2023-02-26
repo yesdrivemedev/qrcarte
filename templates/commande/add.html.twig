@@ -166,10 +166,18 @@
 	</div>
 	<div class="col-lg-3" style="margin-top:50px;">
 		<center>
-			<a href="" class="btn btn-md btn-success">Payer maintenant |
-				{{TotalCommande}}
+			{% if restaurant.offre.nom == 'GOLD' %}
+				<p>Merci et BON APPETIT!</p>
+			{% else %}
 
-				F CFA</a>
+				<a href="" class="btn btn-md btn-success">Payer maintenant |
+					{{TotalCommande}}
+
+					F CFA</a>
+
+			{% endif %}
+
+
 		</center>
 	</div>
 </div></div></div></section><!-- End Specials Section --><!-- ======= Footer ======= --><footer id="footer"><div class="container"><h3></h3><p>Qrcartes</p><div class="social-links">

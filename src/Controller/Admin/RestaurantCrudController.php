@@ -31,6 +31,7 @@ class RestaurantCrudController extends AbstractCrudController
         return [
             TextField::new('nom'),
             AssociationField::new('proprietaire'),
+            AssociationField::new('offre'),
             SlugField::new('slug')->setTargetFieldName('nom'),
             TextField::new('css'),
             ImageField::new('illustration')->setUploadedFileNamePattern('[year][month][day]-[slug]-[contenthash].[extension]')->setUploadDir('public/uploads/')->setBasePath('uploads/'),
@@ -44,6 +45,7 @@ class RestaurantCrudController extends AbstractCrudController
             TextField::new('phrase2'),
             TextField::new('phrase3'),
             BooleanField::new('isActif'),
+
 
 
         ];

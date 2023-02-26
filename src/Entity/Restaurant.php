@@ -73,6 +73,9 @@ class Restaurant
     #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Mestables::class)]
     private Collection $mestables;
 
+    #[ORM\ManyToOne(inversedBy: 'restaurants')]
+    private ?Offre $offre = null;
+
     public function __construct()
     {
         $this->insertedAt = new \DateTime();
@@ -369,6 +372,18 @@ class Restaurant
                 $mestable->setRestaurant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOffre(): ?Offre
+    {
+        return $this->offre;
+    }
+
+    public function setOffre(?Offre $offre): self
+    {
+        $this->offre = $offre;
 
         return $this;
     }

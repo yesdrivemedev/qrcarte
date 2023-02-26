@@ -26,6 +26,7 @@ class ProprietaireCrudController extends AbstractCrudController
 
             TextField::new('nom'),
             TextField::new('prenom'),
+            AssociationField::new('user'),
             TelephoneField::new('telephone'),
             EmailField::new('email'),
             TextField::new('adresse'),

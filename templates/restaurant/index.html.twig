@@ -74,7 +74,7 @@
 					class="carousel-inner" role="listbox">
 
 					<!-- Slide 1 -->
-					<div class="carousel-item active" style="background-image: url({{ asset('assets/img/restaurants/' ~ restaurant.illustration) }});">
+					<div class="carousel-item active" style="background-image: url({{ asset('uploads/' ~ restaurant.illustration) }});">
 						<div class="carousel-container">
 							<div class="carousel-content">
 								<h2 class="animate__animated animate__fadeInDown">
@@ -134,9 +134,20 @@
 
 							<div class="col-lg-6 menu-item {{plat.filtre}}">
 								<div class="menu-content">
-									<a href="{{ path('app_panier_add',{ 'slug': restaurant.slug, 'id': plat.id }) }}">
-										<img src="{{ asset('assets/img/16136464742221613658415750.png') }}" alt="" height="20px">
-										{{plat.nom}}</a>
+									{% if restaurant.offre.nom == 'SILVER' %}
+
+										<a href="">
+
+											{{plat.nom}}</a>
+									{% else %}
+
+										<a href="  {{ path('app_panier_add',{ 'slug': restaurant.slug, 'id': plat.id }) }}">
+											<img src="{{ asset('assets/img/16136464742221613658415750.png') }}" alt="" height="20px">
+											{{plat.nom}}</a>
+
+									{% endif %}
+
+
 									<span>{{plat.prixsimple / 100}}</span>
 								</div>
 								<div class="menu-ingredients">

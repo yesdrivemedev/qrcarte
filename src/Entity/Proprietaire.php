@@ -36,6 +36,10 @@ class Proprietaire
     #[ORM\OneToMany(mappedBy: 'proprietaire', targetEntity: Restaurant::class)]
     private Collection $restaurants;
 
+    #[ORM\ManyToOne(inversedBy: 'proprietaires')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?User $user = null;
+
     public function __construct()
     {
 
@@ -151,6 +155,18 @@ class Proprietaire
                 $restaurant->setProprietaire(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
